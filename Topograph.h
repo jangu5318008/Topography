@@ -1,7 +1,7 @@
 #ifndef TOPOGRAPH_H_INCLUDED
 #define TOPOGRAPH_H_INCLUDED
 
-#include "Picture.h"
+#include "picture.h"
 #include <iostream>
 #include <fstream>
 using namespace std;

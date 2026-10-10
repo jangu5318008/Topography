@@ -1,4 +1,4 @@
-#include "Picture.h"
+#include "picture.h"
 #include "Topograph.h"
 #include <iostream>
 #include <fstream>
@@ -26,11 +26,11 @@ NODATA_value  -999999
 
         string rowz, colz;
         ifstream ifs(fileName);
-/*        if (!ifs.is_open()) {
-            cout << "File cannot be opened";
+        if (!ifs.is_open()) {
+            cout << "File cannot be opened" << endl;
             return;
         }
-*/
+
         ifs >> rowz >> width >> colz >> height; 
 
 
@@ -50,11 +50,47 @@ NODATA_value  -999999
                 ifs >> v[j][i];
             }
         }
-
-       // v[height - 1][width - 1];  
+/*
+        findMin(); 
+        findMax(); 
+        cout << min << endl; 
+        cout << max;
+*/
 
 
     }
+
+
+    void Topograph::findMin() {
+        min = v[0][0]; 
+        for (int j = 0; j < height; j++) {
+            for (int i = 0; i < width; i++) {
+                if ((v[j][i]) < min) {
+                    min = v[j][i];
+                }
+            }
+        }
+    }
+
+
+
+    void Topograph::findMax() {
+        max = v[0][0]; 
+        for (int j = 0; j < height; j++) {
+            for (int i = 0; i < width; i++) {
+                if ((v[j][i]) > max) {
+                    max = v[j][i];
+                }
+            }
+        }
+    }
+
+    double Topograph::mapRange(double n, double fromLow, double fromHigh, double toLow, double toHigh) {
+
+
+
+
+}
 
 /*
                 Matrix::Matrix(int _rows, int _cols) {
@@ -74,16 +110,6 @@ NODATA_value  -999999
 
 
 
-
-
-
-
-    int Topograph::getHeight() const {
-        return height;
-    }
-    int Topograph::getWidth() const {
-        return width;
-    }
 
     ///find min and max elevation values
     ///call mapRange to convert each elevation to grayscale
