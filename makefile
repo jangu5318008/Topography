@@ -20,6 +20,7 @@ lodepng.o: lodepng.cpp lodepng.h
 
 clean: 
 	rm *.o $(EXENAME)
+	rm *.png
 
 run:
-    ./$(EXENAME)
+	./$(EXENAME)
