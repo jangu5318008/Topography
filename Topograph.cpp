@@ -5,12 +5,6 @@
 using namespace std;
 
 
-
-    ///**************Part 1********************************
-    ///Constructor.  Open a ArcGIS ASCII Grid file
-    ///read the header to assign height and width
-    ///resize v and read elevation data
-
 /*
 ncols        2503
 nrows        996
@@ -22,7 +16,7 @@ NODATA_value  -999999
 
 
     Topograph::Topograph(string fileName) {
-        //v(fileName); 
+
 
         string rowz, colz;
         ifstream ifs(fileName);
@@ -50,12 +44,6 @@ NODATA_value  -999999
                 ifs >> v[j][i];
             }
         }
-/*
-        findMin(); 
-        findMax(); 
-        cout << min << endl; 
-        cout << max;
-*/
 
 
     }
@@ -85,40 +73,43 @@ NODATA_value  -999999
         }
     }
 
-    double Topograph::mapRange(double n, double fromLow, double fromHigh, double toLow, double toHigh) {
-
-
-
+double Topograph::mapRange(double n, double fromLow, double fromHigh, double toLow, double toHigh) {   
+        
+        return (((n - fromLow)/(fromHigh - fromLow)) * (toHigh - toLow)) + toLow; 
 
 }
 
-/*
-                Matrix::Matrix(int _rows, int _cols) {
-                rows = _rows;
-                cols = _cols; 
-                a.resize(rows); 
-                for (int i = 0; i < rows; i++) {
-                   //(newSize, desiredValue) 
-                   a[i].resize(cols, 0.0);
-                    
-                }
+    void Topograph::drawMap(Picture& pic) {
+        findMin();
+        findMax();  
  
+
+        for (int j = 0; j < height; j++) {
+            for (int i = 0; i < width; i++) {
+
+                double n = v[j][i];
+                double map = mapRange(n, min, max, 0, 255);
+                pic.set(i , j, map, map, map);
             }
+
+
+        }
+
+
+
+    }
+   
+/*
+
+    Create a Picture object from the provided source files, 
+    assign each grayscale pixel value to correspond to each elevation value, 
+    and then write the Picture object to a file.  
+    You should then see a beautiful topographic image.
 
 */
 
 
 
-
-
-    ///find min and max elevation values
-    ///call mapRange to convert each elevation to grayscale
-    ///set each Picture coordinate at (x,y) to its grayscale value
-    void Topograph::drawMap(Picture& pic) {
-
-
-    }
-   
     
 /*
     private:
