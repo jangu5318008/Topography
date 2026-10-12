@@ -98,31 +98,4 @@ double Topograph::mapRange(double n, double fromLow, double fromHigh, double toL
 
 
     }
-   
-/*
-
-    Create a Picture object from the provided source files, 
-    assign each grayscale pixel value to correspond to each elevation value, 
-    and then write the Picture object to a file.  
-    You should then see a beautiful topographic image.
-
-*/
-
-
-
-    
-/*
-    private:
-    void findMin();
-    void findMax();
-    ///scale n from [fromLow:fromHigh] to [toLow:toHigh]
-    double mapRange(double n, double fromLow, double fromHigh, double toLow, double toHigh);
-
-    vector<vector<double>> v;
-    int height;
-    int width;
-    double min;
-    double max;
-
-
-*/
+ 

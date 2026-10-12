@@ -23,6 +23,13 @@ public:
     ///set each Picture coordinate at (x,y) to its grayscale value
     void drawMap(Picture& pic);
 
+
+    double getMin() {
+        return min;
+    }
+    double getMax() {
+        return max;
+    }
 private:
     void findMin();
     void findMax();

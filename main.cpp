@@ -9,5 +9,12 @@ int main()
     topo.drawMap(pic);
     pic.save(outFileName1);
 
+
+    cout << "Width: " << topo.getWidth() << '\n';
+    cout << "Height: " << topo.getHeight() << '\n';
+
+    cout << "Minimum: " << topo.getMin() << '\n';
+    cout << "Maximum: " << topo.getMax() << '\n';
+
     return 0;
 }
